@@ -1,0 +1,6 @@
+{
+  "name": "Cauan | Vídeo e fotografia para empresas e eventos",
+  "description": "Vídeos e fotografias criados para transformar marcas, histórias e momentos em imagens que permanecem.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

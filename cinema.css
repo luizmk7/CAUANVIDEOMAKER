@@ -1,0 +1,68 @@
+/* Scroll cinema: one stage, one timeline, no fixed-position fallbacks. */
+#servicos.cinema-scroll-section{position:relative;width:100%;margin:0;padding:0;background:#101112;color:#f6f6f4;overflow:visible;isolation:isolate;scroll-margin-top:0}
+#cinema-sticky-stage{position:sticky;top:var(--cinema-top,0px);width:100%;height:var(--cinema-height,100svh);min-height:0;overflow:hidden;display:grid;grid-template-rows:auto minmax(0,1fr) auto auto;gap:0;background:#101112;padding:26px 0 18px;z-index:2;box-sizing:border-box}
+.cinema-stage-header{padding:0 4%;display:flex;justify-content:space-between;align-items:center;gap:24px;z-index:5}
+.cinema-header-left{display:flex;align-items:center;gap:20px;min-width:0}
+.cinema-counter-badge{font-size:12px;letter-spacing:.12em;color:#bbb;font-variant-numeric:tabular-nums;white-space:nowrap;border-right:1px solid #ffffff26;padding-right:20px}
+.cinema-header-title{font-size:clamp(18px,2vw,28px);font-weight:500;letter-spacing:-.03em;margin:0;color:#f6f6f4}
+.cinema-header-subtitle{font-size:12px;color:#9e9e9e;margin:6px 0 0}
+.cinema-header-right{display:flex;align-items:center;gap:22px}
+.cinema-skip-link{font-size:12px;color:#a7a7a7;padding:12px 0;white-space:nowrap}
+.cinema-budget-btn,.cinema-glass-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 17px;border-radius:40px;color:#f5f5f3;background:#ffffff0e;border:1px solid #ffffff25;box-shadow:inset 0 1px 0 #ffffff0a;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);font-size:12px;white-space:nowrap;transition:background .2s}
+.cinema-budget-btn:hover,.cinema-glass-btn:hover{background:#ffffff20}
+#cinema-track-viewport{position:relative;width:100%;height:100%;min-height:0;overflow:hidden;margin:0}
+.cinema-track{position:absolute;inset:0;width:100%;height:100%;transform:none}
+.cinema-card{position:absolute;left:0;top:0;margin:0;aspect-ratio:auto;overflow:hidden;background:#080808;border:1px solid #ffffff14;border-radius:18px;transform-origin:0 0;will-change:transform;cursor:pointer;box-shadow:0 24px 50px #0003}
+.cinema-media-shell,.cinema-video{width:100%;height:100%;display:block;margin:0;background:#080808}
+.cinema-media-shell{position:relative}
+.cinema-video{object-fit:contain}
+.cinema-card-ambient-tint{display:none}
+.cinema-card-collapsed-badge{position:absolute;bottom:15px;left:15px;font-size:11px;letter-spacing:.08em;background:#1119;border:1px solid #ffffff20;padding:8px 12px;border-radius:30px;backdrop-filter:blur(14px);pointer-events:none}
+.cinema-card-collapsed-badge .live-dot-pulse{display:none}
+.cinema-overlay-controls{padding:4px 4% 15px;display:flex;align-items:center;justify-content:space-between;gap:24px;position:relative;z-index:5;opacity:1;pointer-events:auto;margin:0;min-height:70px}
+.cinema-info-group{min-width:0}
+.cinema-info-tag{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:#aaa;margin-bottom:7px}
+.cinema-info-title{font-family:Manrope,sans-serif;font-weight:500;font-size:clamp(17px,2vw,26px);color:#f6f6f4;margin:0;line-height:1.25;max-width:650px}
+.cinema-actions-group{display:flex;gap:8px;flex-shrink:0}
+.cinema-chapters{display:flex;justify-content:center;gap:6px;padding:0 4%}
+.cinema-chapters button{border:0;border-radius:50%;background:none;color:#868686;font-size:11px;font-variant-numeric:tabular-nums;width:44px;height:36px;position:relative}
+.cinema-chapters button[aria-current=true]{color:#fff}
+.cinema-chapters button[aria-current=true]:after{content:'';position:absolute;width:14px;height:1px;background:#fff;bottom:3px;left:15px}
+.cinema-position{position:absolute;bottom:0;left:0;right:0;height:2px;background:#ffffff12}
+.cinema-position span{display:block;width:100%;height:100%;transform:scaleX(0);transform-origin:left;background:#d5d5d1}
+.cinema-card:focus-visible{outline:2px solid white;outline-offset:5px}
+.gear-stage .gear-visual img{filter:drop-shadow(0 24px 32px #0003);object-fit:contain}
+@media(max-width:700px){
+ #cinema-sticky-stage{padding:18px 0 12px}
+ .cinema-stage-header{padding:0 5%;gap:12px;align-items:flex-start}
+ .cinema-header-left{gap:0;display:block}
+ .cinema-counter-badge{display:block;border:0;padding:0;margin-bottom:9px;font-size:11px}
+ .cinema-header-title{font-size:19px;max-width:180px;line-height:1.15}
+ .cinema-header-subtitle{font-size:11px}
+ .cinema-header-right{flex-direction:column-reverse;align-items:flex-end;gap:2px}
+ .cinema-skip-link{font-size:11px;min-height:44px;display:flex;align-items:center}
+ .cinema-budget-btn{min-height:40px;padding:9px 13px}
+ .cinema-overlay-controls{padding:0 5% 12px;display:block;min-height:114px}
+ .cinema-info-title{font-size:18px;max-width:100%;line-height:1.3}
+ .cinema-info-tag{font-size:10px;margin-bottom:5px}
+ .cinema-actions-group{margin-top:14px;gap:7px}
+ .cinema-glass-btn{padding:8px 12px;font-size:11px;min-height:44px}
+ .cinema-chapters button{height:44px}
+ .cinema-chapters button[aria-current=true]:after{bottom:7px}
+ .cinema-card-collapsed-badge{font-size:9px;padding:6px 10px;bottom:10px;left:10px}
+}
+@media(max-height:520px) and (min-width:701px){
+ #cinema-sticky-stage{padding-top:12px;padding-bottom:6px}
+ .cinema-header-subtitle,.cinema-info-tag{display:none}
+ .cinema-overlay-controls{min-height:46px;padding-bottom:0}
+ .cinema-header-title,.cinema-info-title{font-size:16px}
+ .cinema-chapters button{height:28px}
+}
+#servicos.cinema-reduced{height:auto!important}
+.cinema-reduced #cinema-sticky-stage{position:relative;top:0;height:auto;display:block;padding:35px 0}
+.cinema-reduced #cinema-track-viewport{height:auto;overflow:visible}
+.cinema-reduced .cinema-track{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding:30px 5%;height:auto}
+.cinema-reduced .cinema-card{position:relative;width:100%;height:auto;aspect-ratio:16/9;transform:none;visibility:visible;opacity:1}
+.cinema-reduced .cinema-card-collapsed-badge{display:none}
+.cinema-reduced .cinema-overlay-controls,.cinema-reduced .cinema-chapters,.cinema-reduced .cinema-position,.cinema-reduced .cinema-header-subtitle{display:none}
+@media(max-width:700px){.cinema-reduced .cinema-track{grid-template-columns:1fr}}
